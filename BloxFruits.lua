@@ -2,23 +2,12 @@ local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/daw
 
 local win = DiscordLib:Window("Attack Hub Script Free Owner : xZcAtliftz")
 
-local serv = win:Server("Attack Hub", "")
+local serv = win:Server("Blox Fruits", "")
 
 local page = serv:Channel("Auto Farm")
 
-page:Toggle("Auto Farm Level", _G.AutoFarmLevel, function(vu)
-    _G.AutoFarm = vu
-	if _G.AutoFarm and SelectToolWeapon == "" then
-		DiscordLib:Notification("AutoFarm","SelectWeapon First","Okay")
-	else
-		Auto_Farm = vu
-		SelectMonster = ""
-		if vu == false then
-			wait(1)
-			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-		end
-	end
-end)
+page:Label("ลบ Auto Farm แบบ Tween เนื่องจากบัคเยอะ เดี๋ยวใส่ใหม่ในอัพเดท 17/2")
+
 page:Toggle("Auto Farm Tp Bypass", _G.AutoFarmLevel, function(vu)
     _G.AutoFarmtp = vu
 end)
