@@ -2,7 +2,7 @@ local DiscordLib = loadstring(game:HttpGet"https://raw.githubusercontent.com/daw
 
 local win = DiscordLib:Window("Attack Hub Script Free Owner : xZcAtliftz")
 
-local serv = win:Server("Blox Fruits", "")
+local serv = win:Server("Attack Hub", "")
 
 local page = serv:Channel("Auto Farm")
 
