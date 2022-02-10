@@ -6,7 +6,21 @@ local serv = win:Server("Blox Fruits", "")
 
 local page = serv:Channel("Auto Farm")
 
-page:Label("ลบ Auto Farm แบบ Tween เนื่องจากบัคเยอะ เดี๋ยวใส่ใหม่ในอัพเดท 17/2")
+page:Label("แก้ Auto Farm แบบ Tween มาแล้ว ต่อไป รอ Update 17/2 ได้เลย")
+
+page:Toggle("Auto Farm Level", _G.AutoFarmLevel, function(vu)
+    _G.AutoFarm = vu
+	if _G.AutoFarm and SelectToolWeapon == "" then
+		DiscordLib:Notification("AutoFarm","SelectWeapon First","Okay")
+	else
+		Auto_Farm = vu
+		SelectMonster = ""
+		if vu == false then
+			wait(1)
+			TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+		end
+	end
+end)
 
 page:Toggle("Auto Farm Tp Bypass", _G.AutoFarmLevel, function(vu)
     _G.AutoFarmtp = vu
@@ -1723,9 +1737,9 @@ function CheckLevel()
             NameMon = "Fishman Warrior"
             CFrameQ = CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
             CFrameMon = CFrame.new(60844.10546875, 98.462875366211, 1298.3985595703)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+			end
         elseif Lv == 400 or Lv <= 449 or SelectMonster == "Fishman Commando [Lv. 400]" then -- Fishman Commando
             Ms = "Fishman Commando [Lv. 400]"
             NameQuest = "FishmanQuest"
@@ -1733,9 +1747,9 @@ function CheckLevel()
             NameMon = "Fishman Commando"
             CFrameQ = CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
             CFrameMon = CFrame.new(61738.3984375, 64.207321166992, 1433.8375244141)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+			end
         elseif Lv == 450 or Lv <= 474 or SelectMonster == "God's Guard [Lv. 450]" then -- God's Guard
             Ms = "God's Guard [Lv. 450]"
             NameQuest = "SkyExp1Quest"
@@ -1743,9 +1757,9 @@ function CheckLevel()
             NameMon = "God's Guard"
             CFrameQ = CFrame.new(-4721.8603515625, 845.30297851563, -1953.8489990234)
             CFrameMon = CFrame.new(-4628.0498046875, 866.92877197266, -1931.2352294922)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
+			end
         elseif Lv == 475 or Lv <= 524 or SelectMonster == "Shanda [Lv. 475]" then -- Shanda
             Ms = "Shanda [Lv. 475]"
             NameQuest = "SkyExp1Quest"
@@ -1753,9 +1767,9 @@ function CheckLevel()
             NameMon = "Shanda"
             CFrameQ = CFrame.new(-7863.1596679688, 5545.5190429688, -378.42266845703)
             CFrameMon = CFrame.new(-7685.1474609375, 5601.0751953125, -441.38876342773)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 3000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+			end
         elseif Lv == 525 or Lv <= 549 or SelectMonster == "Royal Squad [Lv. 525]" then -- Royal Squad
             Ms = "Royal Squad [Lv. 525]"
             NameQuest = "SkyExp2Quest"
@@ -1892,9 +1906,9 @@ function CheckLevel()
             NameMon = "Ship Deckhand"
             CFrameQ = CFrame.new(1040.2927246094, 125.08293151855, 32911.0390625)
             CFrameMon = CFrame.new(921.12365722656, 125.9839553833, 33088.328125)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
         elseif Lv == 1275 or Lv <= 1299 or SelectMonster == "Ship Engineer [Lv. 1275]" then -- Ship Engineer
             Ms = "Ship Engineer [Lv. 1275]"
             NameQuest = "ShipQuest1"
@@ -1902,9 +1916,9 @@ function CheckLevel()
             NameMon = "Ship Engineer"
             CFrameQ = CFrame.new(1040.2927246094, 125.08293151855, 32911.0390625)
             CFrameMon = CFrame.new(886.28179931641, 40.47790145874, 32800.83203125)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
         elseif Lv == 1300 or Lv <= 1324 or SelectMonster == "Ship Steward [Lv. 1300]" then -- Ship Steward
             Ms = "Ship Steward [Lv. 1300]"
             NameQuest = "ShipQuest2"
@@ -1912,9 +1926,9 @@ function CheckLevel()
             NameMon = "Ship Steward"
             CFrameQ = CFrame.new(971.42065429688, 125.08293151855, 33245.54296875)
             CFrameMon = CFrame.new(943.85504150391, 129.58183288574, 33444.3671875)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
         elseif Lv == 1325 or Lv <= 1349 or SelectMonster == "Ship Officer [Lv. 1325]" then -- Ship Officer
             Ms = "Ship Officer [Lv. 1325]"
             NameQuest = "ShipQuest2"
@@ -1922,9 +1936,9 @@ function CheckLevel()
             NameMon = "Ship Officer"
             CFrameQ = CFrame.new(971.42065429688, 125.08293151855, 33245.54296875)
             CFrameMon = CFrame.new(955.38458251953, 181.08335876465, 33331.890625)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+			end
         elseif Lv == 1350 or Lv <= 1374 or SelectMonster == "Arctic Warrior [Lv. 1350]" then -- Arctic Warrior
             Ms = "Arctic Warrior [Lv. 1350]"
             NameQuest = "FrostQuest"
@@ -1932,9 +1946,9 @@ function CheckLevel()
             NameMon = "Arctic Warrior"
             CFrameQ = CFrame.new(5668.1372070313, 28.202531814575, -6484.6005859375)
             CFrameMon = CFrame.new(5935.4541015625, 77.26016998291, -6472.7568359375)
-            if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
-            end
+			if Auto_Farm and (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 20000 then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
+			end
         elseif Lv == 1375 or Lv <= 1424 or SelectMonster == "Snow Lurker [Lv. 1375]" then -- Snow Lurker
             Ms = "Snow Lurker [Lv. 1375]"
             NameQuest = "FrostQuest"
@@ -1956,210 +1970,167 @@ function CheckLevel()
             NameMon = "Water Fighter"
             CFrameQ = CFrame.new(-3054.5827636719, 236.87213134766, -10147.790039063)
             CFrameMon = CFrame.new(-3262.9301757813, 298.69036865234, -10552.529296875)
-        end
-    end
-    if ThreeWorld then
-        if MyLevel >= 1500 and MyLevel <= 1524 then
-            Ms = "Pirate Millionaire [Lv. 1500]"
-            NaemQuest = "PiratePortQuest"
-            QuestLv = 1
-            NameMon = "Pirate Millionaire"
-            CFrameQ = CFrame.new(-290.074677, 42.9034653, 5581.58984)
-            PosQuest = Vector3.new(-290.074677, 42.9034653, 5581.58984)
-            CFrameMon = CFrame.new(81.164993286133, 43.755737304688, 5724.7021484375)
-            PosMon = Vector3.new(81.164993286133, 43.755737304688, 5724.7021484375)
-        elseif MyLevel >= 1525 and MyLevel <= 1574 then
-            Ms = "Pistol Billionaire [Lv. 1525]"
-            NaemQuest = "PiratePortQuest"
-            QuestLv = 2
-            NameMon = "Pistol Billionaire"
-            CFrameQ = CFrame.new(-290.074677, 42.9034653, 5581.58984)
-            PosQuest = Vector3.new(-290.074677, 42.9034653, 5581.58984)
-            CFrameMon = CFrame.new(81.164993286133, 43.755737304688, 5724.7021484375)
-            PosMon = Vector3.new(81.164993286133, 43.755737304688, 5724.7021484375)
-        elseif MyLevel >= 1575 and MyLevel <= 1599 then
-            Ms = "Dragon Crew Warrior [Lv. 1575]"
-            NaemQuest = "AmazonQuest"
-            QuestLv = 1
-            NameMon = "Dragon Crew Warrior"
-            CFrameQ = CFrame.new(5832.83594, 51.6806107, -1101.51563)
-            PosQuest = Vector3.new(5832.83594, 51.6806107, -1101.51563)
-            CFrameMon = CFrame.new(6241.9951171875, 51.522083282471, -1243.9771728516)
-            PosMon = Vector3.new(6241.9951171875, 51.522083282471, -1243.9771728516)
-        elseif MyLevel >= 1600 and MyLevel <= 1624 then
-            Ms = "Dragon Crew Archer [Lv. 1600]"
-            NaemQuest = "AmazonQuest"
-            QuestLv = 2
-            NameMon = "Dragon Crew Archer"
-            CFrameQ = CFrame.new(5832.83594, 51.6806107, -1101.51563)
-            PosQuest = Vector3.new(5832.83594, 51.6806107, -1101.51563)
-            CFrameMon = CFrame.new(6488.9155273438, 383.38375854492, -110.66246032715)
-            PosMon = Vector3.new(6488.9155273438, 383.38375854492, -110.66246032715)
-        elseif MyLevel >= 1625 and MyLevel <= 1649 then
-            Ms = "Female Islander [Lv. 1625]"
-            NaemQuest = "AmazonQuest2"
-            QuestLv = 1
-            NameMon = "Female Islander"
-            CFrameQ = CFrame.new(5448.86133, 601.516174, 751.130676)
-            PosQuest = Vector3.new(5448.86133, 601.516174, 751.130676)
-            CFrameMon = CFrame.new(5825.2241210938, 682.89245605469, 704.57958984375)
-            PosMon = Vector3.new(5825.2241210938, 682.89245605469, 704.57958984375)
-        elseif MyLevel >= 1650 and MyLevel <= 1699 then
-            Ms = "Giant Islander [Lv. 1650]"
-            NaemQuest = "AmazonQuest2"
-            QuestLv = 2
-            NameMon = "Giant Islander"
-            CFrameQ = CFrame.new(5448.86133, 601.516174, 751.130676)
-            PosQuest = Vector3.new(5448.86133, 601.516174, 751.130676)
-            CFrameMon = CFrame.new(4530.3540039063, 656.75695800781, -131.60952758789)
-            PosMon = Vector3.new(4530.3540039063, 656.75695800781, -131.60952758789)
-        elseif MyLevel >= 1700 and MyLevel <= 1724 then
-            Ms = "Marine Commodore [Lv. 1700]"
-            NaemQuest = "MarineTreeIsland"
-            QuestLv = 1
-            NameMon = "Marine Commodore"
-            CFrameQ = CFrame.new(2180.54126, 27.8156815, -6741.5498)
-            PosQuest = Vector3.new(2180.54126, 27.8156815, -6741.5498)
-            CFrameMon = CFrame.new(2490.0844726563, 190.4232635498, -7160.0502929688)
-            PosMon = Vector3.new(2490.0844726563, 190.4232635498, -7160.0502929688)
-        elseif MyLevel >= 1725 and MyLevel <= 1774 then
-            Ms = "Marine Rear Admiral [Lv. 1725]"
-            NaemQuest = "MarineTreeIsland"
-            QuestLv = 2
-            NameMon = "Marine Rear Admiral"
-            CFrameQ = CFrame.new(2180.54126, 27.8156815, -6741.5498)
-            PosQuest = Vector3.new(2180.54126, 27.8156815, -6741.5498)
-            CFrameMon = CFrame.new(3951.3903808594, 229.11549377441, -6912.81640625)
-            PosMon = Vector3.new(3951.3903808594, 229.11549377441, -6912.81640625)
-        elseif MyLevel >= 1775 and MyLevel <= 1799 then
-            Ms = "Fishman Raider [Lv. 1775]"
-            NaemQuest = "DeepForestIsland3"
-            QuestLv = 1
-            NameMon = "Fishman Raider"
-            CFrameQ = CFrame.new(-10581.6563, 330.872955, -8761.18652)
-            PosQuest = Vector3.new(-10581.6563, 330.872955, -8761.18652)
-            CFrameMon = CFrame.new(-10322.400390625, 390.94473266602, -8580.0908203125)
-            PosMon = Vector3.new(-10322.400390625, 390.94473266602, -8580.0908203125)
-        elseif MyLevel >= 1800 and MyLevel <= 1824 then
-            Ms = "Fishman Captain [Lv. 1800]"
-            NaemQuest = "DeepForestIsland3"
-            QuestLv = 2
-            NameMon = "Fishman Captain"
-            CFrameQ = CFrame.new(-10581.6563, 330.872955, -8761.18652)
-            PosQuest = Vector3.new(-10581.6563, 330.872955, -8761.18652)
-            CFrameMon = CFrame.new(-11194.541992188, 442.02795410156, -8608.806640625)
-            PosMon = Vector3.new(-11194.541992188, 442.02795410156, -8608.806640625)
-        elseif MyLevel >= 1825 and MyLevel <= 1849 then
-            Ms = "Forest Pirate [Lv. 1825]"
-            NaemQuest = "DeepForestIsland"
-            QuestLv = 1
-            NameMon = "Forest Pirate"
-            CFrameQ = CFrame.new(-13234.04, 331.488495, -7625.40137)
-            PosQuest = Vector3.new(-13234.04, 331.488495, -7625.40137)
-            CFrameMon = CFrame.new(-13225.809570313, 428.19387817383, -7753.1245117188)
-            PosMon = Vector3.new(-13225.809570313, 428.19387817383, -7753.1245117188)
-        elseif MyLevel >= 1850 and MyLevel <= 1899 then
-            Ms = "Mythological Pirate [Lv. 1850]"
-            NaemQuest = "DeepForestIsland"
-            QuestLv = 2
-            NameMon = "Mythological Pirate"
-            CFrameQ = CFrame.new(-13234.04, 331.488495, -7625.40137)
-            PosQuest = Vector3.new(-13234.04, 331.488495, -7625.40137)
-            CFrameMon = CFrame.new(-13869.172851563, 564.95251464844, -7084.4135742188)
-            PosMon = Vector3.new(-13869.172851563, 564.95251464844, -7084.4135742188)
-        elseif MyLevel >= 1900 and MyLevel <= 1924 then
-            Ms = "Jungle Pirate [Lv. 1900]"
-            NaemQuest = "DeepForestIsland2"
-            QuestLv = 1
-            NameMon = "Jungle Pirate"
-            CFrameQ = CFrame.new(-12680.3818, 389.971039, -9902.01953)
-            PosQuest = Vector3.new(-12680.3818, 389.971039, -9902.01953)
-            CFrameMon = CFrame.new(-11982.221679688, 376.32522583008, -10451.415039063)
-            PosMon = Vector3.new(-11982.221679688, 376.32522583008, -10451.415039063)
-        elseif MyLevel >= 1925 and MyLevel <= 1974 then
-            Ms = "Musketeer Pirate [Lv. 1925]"
-            NaemQuest = "DeepForestIsland2"
-            QuestLv = 2
-            NameMon = "Musketeer Pirate"
-            CFrameQ = CFrame.new(-12680.3818, 389.971039, -9902.01953)
-            PosQuest = Vector3.new(-12680.3818, 389.971039, -9902.01953)
-            CFrameMon = CFrame.new(-13282.3046875, 496.23684692383, -9565.150390625)
-            PosMon = Vector3.new(-13282.3046875, 496.23684692383, -9565.150390625)
-        elseif MyLevel >= 1975 and MyLevel <= 1999 then
-            Ms = "Reborn Skeleton [Lv. 1975]"
-            NaemQuest = "HauntedQuest1"
-            QuestLv = 1
-            NameMon = "Reborn Skeleton"
-            CFrameQ = CFrame.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
-            PosQuest = Vector3.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
-            CFrameMon = CFrame.new(-8817.880859375, 191.16761779785, 6298.6557617188)
-            PosMon = Vector3.new(-8817.880859375, 191.16761779785, 6298.6557617188)
-        elseif MyLevel >= 2000 and MyLevel <= 2024 then
-            Ms = "Living Zombie [Lv. 2000]"
-            NaemQuest = "HauntedQuest1"
-            QuestLv = 2
-            NameMon = "Living Zombie"
-            CFrameQ = CFrame.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
-            PosQuest = Vector3.new(-9480.8271484375, 142.13066101074, 5566.0712890625)
-            CFrameMon = CFrame.new(-10125.234375, 183.94705200195, 6242.013671875)
-            PosMon = Vector3.new(-10125.234375, 183.94705200195, 6242.013671875)
-        elseif MyLevel >= 2025 and MyLevel <= 2049  then
-            Ms = "Demonic Soul [Lv. 2025]"
-            NaemQuest = "HauntedQuest2"
-            QuestLv = 1
-            NameMon = "Demonic Soul"
-            CFrameQ = CFrame.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
-            PosQuest = Vector3.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
-            CFrameMon = CFrame.new(-9712.03125, 204.69589233398, 6193.322265625)
-            PosMon = Vector3.new(-9712.03125, 204.69589233398, 6193.322265625)
-        elseif MyLevel > 2050 and MyLevel <= 2074 then
-            Ms = "Posessed Mummy [Lv. 2050]"
-            NaemQuest = "HauntedQuest2"
-            QuestLv = 2
-            NameMon = "Posessed Mummy"
-            CFrameQ = CFrame.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
-            PosQuest = Vector3.new(-9516.9931640625, 178.00651550293, 6078.4653320313)
-            CFrameMon = CFrame.new(-9545.7763671875, 69.619895935059, 6339.5615234375)    
-            PosMon = Vector3.new(-9545.7763671875, 69.619895935059, 6339.5615234375)
-        elseif MyLevel >= 2075 and MyLevel <= 2099  then
-            Ms = "Peanut Scout [Lv. 2075]"
-            NaemQuest = "NutsIslandQuest"
-            QuestLv = 1
-            NameMon = "Peanut Scout"
-            CFrameQ = CFrame.new(-2104.5874, 38.1299706, -10194.3496, 0.774643302, -5.8516525e-09, 0.632398427, -4.8110703e-08, 1, 6.81853152e-08, -0.632398427, -8.324443e-08, 0.774643302)
-            PosQuest = Vector3.new(-2104.5874, 38.1299706, -10194.3496, 0.774643302, -5.8516525e-09, 0.632398427, -4.8110703e-08, 1, 6.81853152e-08, -0.632398427, -8.324443e-08, 0.774643302)
-            CFrameMon = CFrame.new(-2099.04126, 107.883263, -10065.6582, -0.847717106, -1.89047302e-08, -0.530448556, -2.99691649e-08, 1, 1.22549917e-08, 0.530448556, 2.62858659e-08, -0.847717106)    
-            PosHee = Vector3.new(-2099.04126, 107.883263, -10065.6582, -0.847717106, -1.89047302e-08, -0.530448556, -2.99691649e-08, 1, 1.22549917e-08, 0.530448556, 2.62858659e-08, -0.847717106)
-        elseif MyLevel >= 2100 and MyLevel <= 2124  then
-            Ms = "Peanut President [Lv. 2100]"
-            NaemQuest = "NutsIslandQuest"
-            QuestLv = 2
-            NameMon = "Peanut President"
-            CFrameQ = CFrame.new(-2104.2546386719, 38.129970550537, -10194.146484375)
-            PosQuest = Vector3.new(-2104.2546386719, 38.129970550537, -10194.146484375)
-            CFrameMon = CFrame.new(-2137.076171875, 70.30451965332, -10515.509765625)
-            PosHee = Vector3.new(-2137.076171875, 70.30451965332, -10515.509765625)
-        elseif MyLevel >= 2125 and MyLevel <= 2149  then
+		end
+	end
+	if ThreeWorld then
+		if Lv == 1500 or Lv <= 1524 or SelectMonster == "Pirate Millionaire [Lv. 1500]" then -- Pirate Millionaire
+			Ms = "Pirate Millionaire [Lv. 1500]"
+			NameQuest = "PiratePortQuest"
+			QuestLv = 1
+			NameMon = "Pirate Millionaire"
+			CFrameQ = CFrame.new(-289.61752319336, 43.819011688232, 5580.0903320313)
+			CFrameMon = CFrame.new(-435.68109130859, 189.69866943359, 5551.0756835938)
+		elseif Lv == 1525 or Lv <= 1574 or SelectMonster == "Pistol Billionaire [Lv. 1525]" then -- Pistol Billoonaire
+			Ms = "Pistol Billionaire [Lv. 1525]"
+			NameQuest = "PiratePortQuest"
+			QuestLv = 2
+			NameMon = "Pistol Billionaire"
+			CFrameQ = CFrame.new(-289.61752319336, 43.819011688232, 5580.0903320313)
+			CFrameMon = CFrame.new(-236.53652954102, 217.46676635742, 6006.0883789063)
+		elseif Lv == 1575 or Lv <= 1599 or SelectMonster == "Dragon Crew Warrior [Lv. 1575]" then -- Dragon Crew Warrior
+			Ms = "Dragon Crew Warrior [Lv. 1575]"
+			NameQuest = "AmazonQuest"
+			QuestLv = 1
+			NameMon = "Dragon Crew Warrior"
+			CFrameQ = CFrame.new(5833.1147460938, 51.60498046875, -1103.0693359375)
+			CFrameMon = CFrame.new(6301.9975585938, 104.77153015137, -1082.6075439453)
+		elseif Lv == 1600 or Lv <= 1624 or SelectMonster == "Dragon Crew Archer [Lv. 1600]" then -- Dragon Crew Archer
+			Ms = "Dragon Crew Archer [Lv. 1600]"
+			NameQuest = "AmazonQuest"
+			QuestLv = 2
+			NameMon = "Dragon Crew Archer"
+			CFrameQ = CFrame.new(5833.1147460938, 51.60498046875, -1103.0693359375)
+			CFrameMon = CFrame.new(6831.1171875, 441.76708984375, 446.58615112305)
+		elseif Lv == 1625 or Lv <= 1649 or SelectMonster == "Female Islander [Lv. 1625]" then -- Female Islander
+			Ms = "Female Islander [Lv. 1625]"
+			NameQuest = "AmazonQuest2"
+			QuestLv = 1
+			NameMon = "Female Islander"
+			CFrameQ = CFrame.new(5446.8793945313, 601.62945556641, 749.45672607422)
+			CFrameMon = CFrame.new(5792.5166015625, 848.14392089844, 1084.1818847656)
+		elseif Lv == 1650 or Lv <= 1699 or SelectMonster == "Giant Islander [Lv. 1650]" then -- Giant Islander
+			Ms = "Giant Islander [Lv. 1650]"
+			NameQuest = "AmazonQuest2"
+			QuestLv = 2
+			NameMon = "Giant Islander"
+			CFrameQ = CFrame.new(5446.8793945313, 601.62945556641, 749.45672607422)
+			CFrameMon = CFrame.new(5009.5068359375, 664.11071777344, -40.960144042969)
+		elseif Lv == 1700 or Lv <= 1724 or SelectMonster == "Marine Commodore [Lv. 1700]" then -- Marine Commodore
+			Ms = "Marine Commodore [Lv. 1700]"
+			NameQuest = "MarineTreeIsland"
+			QuestLv = 1
+			NameMon = "Marine Commodore"
+			CFrameQ = CFrame.new(2179.98828125, 28.731239318848, -6740.0551757813)
+			CFrameMon = CFrame.new(2198.0063476563, 128.71075439453, -7109.5043945313)
+		elseif Lv == 1725 or Lv <= 1774 or SelectMonster == "Marine Rear Admiral [Lv. 1725]" then -- Marine Rear Admiral
+			Ms = "Marine Rear Admiral [Lv. 1725]"
+			NameQuest = "MarineTreeIsland"
+			QuestLv = 2
+			NameMon = "Marine Rear Admiral"
+			CFrameQ = CFrame.new(2179.98828125, 28.731239318848, -6740.0551757813)
+			CFrameMon = CFrame.new(3294.3142089844, 385.41125488281, -7048.6342773438)
+		elseif Lv == 1775 or Lv <= 1799 or SelectMonster == "Fishman Raider [Lv. 1775]" then -- Fishman Raide
+			Ms = "Fishman Raider [Lv. 1775]"
+			NameQuest = "DeepForestIsland3"
+			QuestLv = 1
+			NameMon = "Fishman Raider"
+			CFrameQ = CFrame.new(-10582.759765625, 331.78845214844, -8757.666015625)
+			CFrameMon = CFrame.new(-10553.268554688, 521.38439941406, -8176.9458007813)
+		elseif Lv == 1800 or Lv <= 1824 or SelectMonster == "Fishman Captain [Lv. 1800]" then -- Fishman Captain
+			Ms = "Fishman Captain [Lv. 1800]"
+			NameQuest = "DeepForestIsland3"
+			QuestLv = 2
+			NameMon = "Fishman Captain"
+			CFrameQ = CFrame.new(-10583.099609375, 331.78845214844, -8759.4638671875)
+			CFrameMon = CFrame.new(-10789.401367188, 427.18637084961, -9131.4423828125)
+		elseif Lv == 1825 or Lv <= 1849 or SelectMonster == "Forest Pirate [Lv. 1825]" then -- Forest Pirate
+			Ms = "Forest Pirate [Lv. 1825]"
+			NameQuest = "DeepForestIsland"
+			QuestLv = 1
+			NameMon = "Forest Pirate"
+			CFrameQ = CFrame.new(-13232.662109375, 332.40396118164, -7626.4819335938)
+			CFrameMon = CFrame.new(-13489.397460938, 400.30349731445, -7770.251953125)
+		elseif Lv == 1850 or Lv <= 1899 or SelectMonster == "Mythological Pirate [Lv. 1850]" then -- Mythological Pirate
+			Ms = "Mythological Pirate [Lv. 1850]"
+			NameQuest = "DeepForestIsland"
+			QuestLv = 2
+			NameMon = "Mythological Pirate"
+			CFrameQ = CFrame.new(-13232.662109375, 332.40396118164, -7626.4819335938)
+			CFrameMon = CFrame.new(-13508.616210938, 582.46228027344, -6985.3037109375)
+		elseif Lv == 1900 or Lv <= 1924 or SelectMonster == "Jungle Pirate [Lv. 1900]" then -- Jungle Pirate
+			Ms = "Jungle Pirate [Lv. 1900]"
+			NameQuest = "DeepForestIsland2"
+			QuestLv = 1
+			NameMon = "Jungle Pirate"
+			CFrameQ = CFrame.new(-12682.096679688, 390.88653564453, -9902.1240234375)
+			CFrameMon = CFrame.new(-12267.103515625, 459.75262451172, -10277.200195313)
+		elseif Lv == 1925 or Lv <= 1974 or SelectMonster == "Musketeer Pirate [Lv. 1925]" then -- Musketeer Pirate
+			Ms = "Musketeer Pirate [Lv. 1925]"
+			NameQuest = "DeepForestIsland2"
+			QuestLv = 2
+			NameMon = "Musketeer Pirate"
+			CFrameQ = CFrame.new(-12682.096679688, 390.88653564453, -9902.1240234375)
+			CFrameMon = CFrame.new(-13291.5078125, 520.47338867188, -9904.638671875)
+		elseif Lv == 1975 or Lv <= 1999 or SelectMonster == "Reborn Skeleton [Lv. 1975]" then
+			Ms = "Reborn Skeleton [Lv. 1975]"
+			NameQuest = "HauntedQuest1"
+			QuestLv = 1
+			NameMon = "Reborn Skeleton"
+			CFrameQ = CFrame.new(-9480.80762, 142.130661, 5566.37305, -0.00655503059, 4.52954225e-08, -0.999978542, 2.04920472e-08, 1, 4.51620679e-08, 0.999978542, -2.01955679e-08, -0.00655503059)
+			CFrameMon = CFrame.new(-8761.77148, 183.431747, 6168.33301, 0.978073597, -1.3950732e-05, -0.208259016, -1.08073925e-06, 1, -7.20630269e-05, 0.208259016, 7.07080399e-05, 0.978073597)
+		elseif Lv == 2000 or Lv <= 2024 or SelectMonster == "Living Zombie [Lv. 2000]" then
+			Ms = "Living Zombie [Lv. 2000]"
+			NameQuest = "HauntedQuest1"
+			QuestLv = 2
+			NameMon = "Living Zombie"
+			CFrameQ = CFrame.new(-9480.80762, 142.130661, 5566.37305, -0.00655503059, 4.52954225e-08, -0.999978542, 2.04920472e-08, 1, 4.51620679e-08, 0.999978542, -2.01955679e-08, -0.00655503059)
+			CFrameMon = CFrame.new(-10103.7529, 238.565979, 6179.75977, 0.999474227, 2.77547141e-08, 0.0324240364, -2.58006327e-08, 1, -6.06848474e-08, -0.0324240364, 5.98163865e-08, 0.999474227)
+		elseif Lv == 2025 or Lv <= 2049 or SelectMonster == "Demonic Soul [Lv. 2025]" then
+			Ms = "Demonic Soul [Lv. 2025]"
+			NameQuest = "HauntedQuest2"
+			QuestLv = 1
+			NameMon = "Demonic Soul"
+			CFrameQ = CFrame.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936, -9.78649624e-08, 0.999926567, 2.30358754e-08, 1, 9.75929382e-08, -0.999926567, 2.18513581e-08, 0.0121199936)
+			CFrameMon = CFrame.new(-9709.30762, 204.695892, 6044.04688, -0.845798075, -3.4587876e-07, -0.533503294, -4.46235369e-08, 1, -5.77571257e-07, 0.533503294, -4.64701827e-07, -0.845798075)
+		elseif Lv == 2050 or Lv <= 2074 or SelectMonster == "Posessed Mummy [Lv. 2050]" then
+			Ms = "Posessed Mummy [Lv. 2050]"
+			NameQuest = "HauntedQuest2"
+			QuestLv = 2
+			NameMon = "Posessed Mummy"
+			CFrameQ = CFrame.new(-9515.39551, 172.266037, 6078.89746, 0.0121199936, -9.78649624e-08, 0.999926567, 2.30358754e-08, 1, 9.75929382e-08, -0.999926567, 2.18513581e-08, 0.0121199936)
+			CFrameMon = CFrame.new(-9554.11035, 65.6141663, 6041.73584, -0.877069294, 5.33355795e-08, -0.480364174, 2.06420765e-08, 1, 7.33423562e-08, 0.480364174, 5.44105987e-08, -0.877069294)
+        elseif Lv == 2075 or Lv <= 2099 or SelectMonster == "Peanut Scout [Lv. 2075]" then
+			Ms = "Peanut Scout [Lv. 2075]"
+			NameQuest = "NutsIslandQuest"
+			QuestLv = 1
+			NameMon = "Peanut Scout"
+			CFrameQ = CFrame.new(-2105.53198, 37.2495995, -10195.5088, -0.766061664, 0, -0.642767608, 0, 1, 0, 0.642767608, 0, -0.766061664)
+			CFrameMon = CFrame.new(-2262.80298, 84.4387054, -10255.4922, -0.999993503, 4.39228813e-08, 0.00361041375, 4.39404282e-08, 1, 4.78073403e-09, -0.00361041375, 4.93934582e-09, -0.999993503)
+        elseif Lv == 2100 or Lv <= 2124 or SelectMonster == "Peanut President [Lv. 2100]" then
+			Ms = "Peanut President [Lv. 2100]"
+			NameQuest = "NutsIslandQuest"
+			QuestLv = 2
+			NameMon = "Peanut President"
+            CFrameQ = CFrame.new(-2104.61475, 38.1299706, -10194.1787, 0.767064989, -6.67286102e-08, 0.641569376, 3.32893402e-09, 1, 1.00028309e-07, -0.641569376, -7.4592478e-08, 0.767064989)
+            CFrameMon = CFrame.new(-2182.97241, 88.2648697, -10552.2607, 0.881975889, -1.15795429e-09, 0.471294552, 1.33532996e-09, 1, -4.19579094e-11, -0.471294552, 6.66339595e-10, 0.881975889)
+        elseif Lv == 2125 or Lv <= 2149 or SelectMonster == "Ice Cream Chef [Lv. 2125]" then
             Ms = "Ice Cream Chef [Lv. 2125]"
-            NaemQuest = "IceCreamIslandQuest"
+            NameQuest = "IceCreamIslandQuest"
             QuestLv = 1
             NameMon = "Ice Cream Chef"
-            CFrameQ = CFrame.new(-820.336182, 65.8453293, -10965.7627, 0.763408899, 2.66162115e-08, -0.645915508, 5.54280488e-09, 1, 4.77580073e-08, 0.645915508, -4.00390725e-08, 0.763408899)
-            PosQuest = Vector3.new(-820.336182, 65.8453293, -10965.7627, 0.763408899, 2.66162115e-08, -0.645915508, 5.54280488e-09, 1, 4.77580073e-08, 0.645915508, -4.00390725e-08, 0.763408899)
-            CFrameMon = CFrame.new(-797.381287, 111.218796, -10848.5146, 0.755367041, 4.70847183e-08, 0.655301929, -6.89669344e-09, 1, -6.39021209e-08, -0.655301929, 4.37501413e-08, 0.755367041)    
-            PosHee = Vector3.new(-797.381287, 111.218796, -10848.5146, 0.755367041, 4.70847183e-08, 0.655301929, -6.89669344e-09, 1, -6.39021209e-08, -0.655301929, 4.37501413e-08, 0.755367041)
-        elseif MyLevel >= 2150 then
+            CFrameQ = CFrame.new(-820.450378, 65.8453293, -10966.0752, 0.766577005, 3.68559938e-08, -0.642152369, 1.27155431e-09, 1, 5.89124021e-08, 0.642152369, -4.59774228e-08, 0.766577005)
+            CFrameMon = CFrame.new(-794.760315, 133.070297, -10952.6885, -0.788999617, -7.32182599e-08, 0.614393711, -9.73502026e-08, 1, -5.84480642e-09, -0.614393711, -6.4422899e-08, -0.788999617)
+        elseif Lv == 2150 or Lv <= 2200 or SelectMonster == "Ice Cream Commander [Lv. 2150]" then
             Ms = "Ice Cream Commander [Lv. 2150]"
-            NaemQuest = "IceCreamIslandQuest"
+            NameQuest = "IceCreamIslandQuest"
             QuestLv = 2
             NameMon = "Ice Cream Commander"
-            CFrameQ = CFrame.new(-820.336182, 65.8453293, -10965.7627, 0.763408899, 2.66162115e-08, -0.645915508, 5.54280488e-09, 1, 4.77580073e-08, 0.645915508, -4.00390725e-08, 0.763408899)
-            PosQuest = Vector3.new(-820.336182, 65.8453293, -10965.7627, 0.763408899, 2.66162115e-08, -0.645915508, 5.54280488e-09, 1, 4.77580073e-08, 0.645915508, -4.00390725e-08, 0.763408899)
-            CFrameMon = CFrame.new(-541.803711, 186.394516, -11210.9062, -0.181756258, -5.9845668e-08, 0.983343601, -1.98635615e-08, 1, 5.71878864e-08, -0.983343601, -9.13845e-09, -0.181756258)    
-            PosHee = Vector3.new(-541.803711, 186.394516, -11210.9062, -0.181756258, -5.9845668e-08, 0.983343601, -1.98635615e-08, 1, 5.71878864e-08, -0.983343601, -9.13845e-09, -0.181756258)
-        end
-    end
+            CFrameQ = CFrame.new(-820.450378, 65.8453293, -10966.0752, 0.766577005, 3.68559938e-08, -0.642152369, 1.27155431e-09, 1, 5.89124021e-08, 0.642152369, -4.59774228e-08, 0.766577005)
+            CFrameMon = CFrame.new(-655.430725, 126.896965, -11221.2744, 0.978674889, -1.0593471e-08, -0.205415353, 1.49809232e-08, 1, 1.98036911e-08, 0.205415353, -2.24586856e-08, 0.978674889)
+		end
+	end
 end
+
 
 spawn(function()
     pcall(function()
