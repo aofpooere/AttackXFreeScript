@@ -1075,546 +1075,6 @@ while wait() do
 end
 end)
 
-if ThreeWorld then
-	page:Button("Auto Holy Torch", function()
-		if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Holy Torch") and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Holy Torch") then
-			DiscordLib:Notification("Auto Holy Torch", "You not Have Holy Torch", "Okay")
-		else
-			HolyTorch = true
-			EquipWeapon("Holy Torch")
-			TP2(CFrame.new(-10753.7842, 412.229553, -9364.7959, 0.999571264, 1.15988023e-07, 0.0292795487, -1.15145767e-07, 1, -3.0452199e-08, -0.0292795487, 2.70677276e-08, 0.999571264))
-			wait(1)
-			TP2(CFrame.new(-11673.8115, 331.748993, -9473.27246, 0.82297951, -1.03370638e-07, -0.568071067, 7.03514687e-08, 1, -8.00477693e-08, 0.568071067, 2.59130388e-08, 0.82297951))
-			wait(1)
-			TP2(CFrame.new(-12134.1895, 519.47522, -10653.8457, 0.828167021, 4.15180885e-08, -0.560481429, -3.68933151e-08, 1, 1.95622238e-08, 0.560481429, 4.47723014e-09, 0.828167021))
-			wait(1)
-			TP2(CFrame.new(-13336.9902, 485.547852, -6983.84131, 0.834512472, 8.29770741e-08, -0.550989032, -5.3400484e-08, 1, 6.97177356e-08, 0.550989032, -2.87572384e-08, 0.834512472))
-			wait(1)
-			TP2(CFrame.new(-13486.5088, 332.403931, -7925.40527, -0.974250019, 5.647113e-08, 0.225470319, 3.76493894e-08, 1, -8.7777444e-08, -0.225470319, -7.70283606e-08, -0.974250019))
-			HolyTorch = false
-		end
-	end)
-end
-
-Wapon = {}
-   for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-       if v:IsA("Tool") then
-           table.insert(Wapon ,v.Name)
-       end
-   end
-   for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-       if v:IsA("Tool") then
-           table.insert(Wapon, v.Name)
-       end
-   end
-
-local SelectToolWeapon = page:Dropdown("Select Weapon",Wapon,function(Value)
-    SelectToolWeapon = Value
-       SelectToolWeaponNW = Value
-       AutoTool = Value
-end)
-   
-page:Button("Refresh Weapon",function()
-	SelectToolWeapon:Clear()
-	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-		if v:IsA("Tool") then
-			SelectToolWeapon:Add(v.Name)
-		end
-	end
-	for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-		if v:IsA("Tool") then
-			SelectToolWeapon:Add(v.Name)
-		end
-	end
-end)
-
-page:Button("Redeem All Code", function()
-	function UseCode(Text)
-	 game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Text)
- end
- UseCode("UPD16")
- UseCode("2BILLION")
- UseCode("UPD15")
- UseCode("FUDD10")
- UseCode("BIGNEWS")
- UseCode("THEGREATACE")
- UseCode("SUB2GAMERROBOT_EXP1")
- UseCode("StrawHatMaine")
- UseCode("Sub2OfficialNoobie")
- UseCode("SUB2NOOBMASTER123")
- UseCode("Sub2Daigrock")
- UseCode("Axiore")
- UseCode("TantaiGaming")
- UseCode("STRAWHATMAINE") 
- UseCode("3BVISITS") 
- UseCode("Fudd10 ") 
- UseCode("Fudd10_v2 ") 
- UseCode("Bignews ") 
- UseCode("TantaiGaming") 
-end)
-
-spawn(function()
-	while wait() do
-		 Method = CFrame.new(0,FMode1,FMode3)
-	 end
- end)
- 
- function TP55(P1,P2)
-	 local Distance = (P1 - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-	 if Distance < 1000 then
-		 Speed = 350
-	 elseif Distance >= 1000 then
-		 Speed = 350
-	 end
-	 game:GetService("TweenService"):Create(
-		 game.Players.LocalPlayer.Character.HumanoidRootPart,
-		 TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
-		 {CFrame = P2}
-	 ):Play()
-	 wait(Distance/Speed)
- end
-
- page:Button("Bypass", function(t)
-		local p=game.Players.LocalPlayer;
-		local oldcframe;
-		local holdingfoil=false;
-		p.Character.Humanoid:SetStateEnabled(15,false);
-		p.Character.Humanoid:SetStateEnabled(16,false);
-		p.CharacterRemoving:Connect(function()
-			if (p.Character) then
-				local t=p.Character:FindFirstChild("Torso")
-				if (t ~= nil) then oldcframe=t.CFrame end
-				if (p.Character:findFirstChild("Foil")) then holdingfoil=true end
-			end
-	end)
-		p.CharacterAdded:Connect(function()
-			while p.Character==nil do wait() end
-			while p.Character.Parent==nil do wait() end
-			local h=p.Character:WaitForChild("Humanoid")
-			local rp=p.Character:WaitForChild("HumanoidRootPart")
-			if (h ~= nil and rp ~= nil) then
-				h:SetStateEnabled(15,false);
-				h:SetStateEnabled(16,false);
-				for i=1,10 do
-					rp.CFrame=oldcframe;
-				end
-				if (holdingfoil) then
-					holdingfoil=false
-					local foil=p.Backpack:FindFirstChild("Foil")
-					if (foil ~= nil) then
-						foil.Parent=p.Character
-					end
-				end
-			end
-	end)
-	wait(0.8)
-		game.Players.LocalPlayer.Character.Humanoid.Health = math.huge
-	if game.Players.LocalPlayer.Character.Humanoid.MaxHealth == 100 then
-	if OldWorld then
-		TP55(Vector3.new(5355.2133789062, 38.501129150391, 3979.4418945312),CFrame.new(5355.2133789062, 38.501129150391, 3979.4418945312))
-	for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,0,-4)
-	end
-	wait(1)
-		game.Players.LocalPlayer.Character.Humanoid.Health = game.Players.LocalPlayer.Character.Humanoid.MaxHealth
-	end
-	end
-	if NewWorld or ThreeWorld then
-		for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,0,-4)
-		end
-		wait(1)
-		game.Players.LocalPlayer.Character.Humanoid.Health = game.Players.LocalPlayer.Character.Humanoid.MaxHealth
-		end
-	end)
-
-    page:Label("Auto Fighting Style")
-
-    page:Toggle("Auto Superhuman",false,function(vu)
-        _G.Superhuman = vu
-    end)
-    -- Auto Death Step
-    page:Toggle("Auto Death Step",false,function(vu)
-        _G.DeathStep = vu
-        if vu then
-            local args = {
-                [1] = "BuyBlackLeg"
-            }
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-        end
-    end)
-    -- Auto Dargon Talon
-    page:Toggle("Auto Dragon Talon",false,function(vu)
-        _G.DargonTalon = vu
-        if vu then
-            local args = {
-                [1] = "BlackbeardReward",
-                [2] = "DragonClaw",
-                [3] = "2"
-            }
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-        end
-    end)
-    -- Auto Electric clow
-    page:Toggle("Auto Electric Claw",false,function(vu)
-        _G.Electricclow = vu
-        if vu then
-            local args = {
-                [1] = "BuyElectro"
-            }
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-        end
-    end)
-    spawn(function()
-        while wait(.5) do
-            if _G.Superhuman and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") or game.Players.LocalPlayer.Character:FindFirstChild("Combat") then
-                    local args = {
-                        [1] = "BuyBlackLeg"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end   
-                if game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    _G.SelectToolWeapon = "Superhuman"
-                end  
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    _G.SelectToolWeapon = "Black Leg"
-                end
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    _G.SelectToolWeapon = "Electro"
-                end
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    _G.SelectToolWeapon = "Fishman Karate"
-                end
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    _G.SelectToolWeapon = "Dragon Claw"
-                end
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    local args = {
-                        [1] = "BuyElectro"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-                if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    local args = {
-                        [1] = "BuyElectro"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-                
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    local args = {
-                        [1] = "BuyFishmanKarate"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-                if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    local args = {
-                        [1] = "BuyFishmanKarate"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    local args = {
-                        [1] = "BlackbeardReward",
-                        [2] = "DragonClaw",
-                        [3] = "2"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-                if game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    local args = {
-                        [1] = "BlackbeardReward",
-                        [2] = "DragonClaw",
-                        [3] = "2"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    local args = {
-                        [1] = "BuySuperhuman"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end
-                if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    local args = {
-                        [1] = "BuySuperhuman"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                end 
-            end
-            if _G.DeathStep and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 400 then
-                    local args = {
-                        [1] = "BuyDeathStep"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                    _G.SelectToolWeapon = "Death Step"
-                end  
-                if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 400 then
-                    local args = {
-                        [1] = "BuyDeathStep"
-                    }
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                    
-                    _G.SelectToolWeapon = "Death Step"
-                end  
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value < 400 then
-                    _G.SelectToolWeapon = "Black Leg"
-                end 
-            end
-            if _G.DargonTalon and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value <= 399 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    _G.SelectToolWeapon = "Dragon Claw"
-                end
-                if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value <= 399 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    _G.SelectToolWeapon = "Dragon Claw"
-                end
-    
-                if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 400 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                    _G.SelectToolWeapon = "Dragon Claw"
-                    if game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyDragonTalon", true) == 3 then
-                        local string_1 = "Bones";
-                        local string_2 = "Buy";
-                        local number_1 = 1;
-                        local number_2 = 1;
-                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-                        Target:InvokeServer(string_1, string_2, number_1, number_2);
-    
-                        local string_1 = "BuyDragonTalon";
-                        local bool_1 = true;
-                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-                        Target:InvokeServer(string_1, bool_1);
-                    elseif game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyDragonTalon", true) == 1 then
-                        game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyDragonTalon")
-                    else
-                        local string_1 = "BuyDragonTalon";
-                        local bool_1 = true;
-                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-                        Target:InvokeServer(string_1, bool_1);
-                        local string_1 = "BuyDragonTalon";
-                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-                        Target:InvokeServer(string_1);
-                    end 
-                end
-            end
-            if _G.Electricclow and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value < 400 then
-                    _G.SelectToolWeapon = "Electro"
-                end  
-                if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value < 400 then
-                    _G.SelectToolWeapon = "Electro"
-                end  
-                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 400 then
-                    local v175 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyElectricClaw", true);
-                    if v175 == 4 then
-                        local v176 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyElectricClaw", "Start");
-                        if v176 == nil then
-                            game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12548, 337, -7481)
-                        end
-                    else
-                        local string_1 = "BuyElectricClaw";
-                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-                        Target:InvokeServer(string_1);
-                    end
-                end
-                if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 400 then
-                    local v175 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyElectricClaw", true);
-                    if v175 == 4 then
-                        local v176 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyElectricClaw", "Start");
-                        if v176 == nil then
-                            game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12548, 337, -7481)
-                        end
-                    else
-                        local string_1 = "BuyElectricClaw";
-                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-                        Target:InvokeServer(string_1);
-                    end
-                end
-            end
-        end
-    end)    
-
-local Farm = serv:Channel("Auto Farm Mastery")
-
-Farm:Label("Auto Farm Matery")
-
-Farm:Toggle("Auto Farm Mas. Fruit", false, function(vu)
-    AutoFarmMasteryFruit = vu
-    if AutoFarmMasteryFruit and WeaponMastery == "" then
-        DiscordLib:Notification("Auto Farm Mastery","SelectWeapon First","Okay")
-    else
-        FarmMasteryFruit = vu
-        if vu == false then
-            wait(1)
-            TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-        end
-    end
-end)
-
-Farm:Toggle("Auto Farm Mas. Gun", false, function(vu)
-    AutoarmMasteryGun = vu
-    if AutoarmMasteryGun and WeaponMastery == "" then
-        DiscordLib:Notification("Auto Farm Mastery","SelectWeapon First","Okay")
-    else
-        FarmMasteryGun = vu
-        if vu == false then
-            wait(1)
-            TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
-        end
-    end
-end)
-
-HealthPersen = 25
-Farm:Slider("Health %", 1,100,HealthPersen, function(Value)
-    HealthPersen = Value
-end)
-
-local SelectToolWeapon = Farm:Dropdown("Select Weapon",Wapon,function(Value)
-    WeaponMastery = Value
-    SelectToolWeaponGun = Value
-end)
-
-Farm:Button("Refresh Weapon",function()
-    SelectToolWeapon:Clear()
-    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-        if v:IsA("Tool") then
-            SelectToolWeapon:Add(v.Name)
-        end
-    end
-    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-        if v:IsA("Tool") then
-            SelectToolWeapon:Add(v.Name)
-        end
-    end
-end)
-
-Farm:Label("Auto Skill")
-
-Farm:Toggle("Skill Z",true,function(a)
-        SkillZ = a
-    end)
-    Farm:Toggle("Skill X",true,function(a)
-        SkillX = a
-    end)
-    Farm:Toggle("Skill C",true,function(a)
-        SkillC = a
-    end)
-    Farm:Toggle("Skill V",true,function(a)
-        SkillV = a
-    end)
-
-    spawn(function()
-        while wait(.1) do
-            if FarmMasteryFruit then
-                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                    MasteryBFMagnetActive = false
-                    CheckLevel()
-                    TP(CFrameQ)
-                    if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
-                        wait(1.1)
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-                    end
-                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                    CheckLevel()
-                    if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
-                        pcall(function()
-                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                if v.Name == Ms then
-                                    repeat game:GetService("RunService").Heartbeat:wait()
-                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-                                            HealthMin = v.Humanoid.MaxHealth * HealthPersen/100
-                                            if v.Humanoid.Health <= HealthMin then
-                                                EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
-                                                v.Head.CanCollide = false
-                                                v.HumanoidRootPart.CanCollide = false
-                                                v.HumanoidRootPart.Size = Vector3.new(2,2,1)
-                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                                USEBF = true
-                                            else
-                                                USEBF = false
-                                                EquipWeapon(WeaponMastery)
-                                                TP(v.HumanoidRootPart.CFrame * Farm_Mode)
-                                                game:GetService("VirtualUser"):CaptureController()
-                                                game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
-                                                v.Head.CanCollide = false
-                                                v.HumanoidRootPart.CanCollide = false
-                                                v.HumanoidRootPart.Size = Vector3.new(40,40,40)
-                                            end
-                                            MasteryBFMagnetActive = true
-                                            PosMonMasteryFruit = v.HumanoidRootPart.CFrame
-                                        else
-                                            MasteryBFMagnetActive = false
-                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                                        end
-                                    until v.Humanoid.Health <= 0 or FarmMasteryFruit == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                    USEBF = false
-                                end
-                            end
-                        end)
-                    else
-                        MasteryBFMagnetActive = false
-                        TP(CFrameMon)
-                    end 
-                end
-            end
-        end
-    end)
-
-spawn(function()
-    while wait(.1) do
-        if FarmMasteryGun then
-            if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                MasteryGunMagnetActive = false
-                CheckLevel()
-                TP(CFrameQ)
-                if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
-                    wait(1.1)
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-                end
-            elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                CheckLevel()
-                if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
-                    pcall(function()
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == Ms then
-                                repeat game:GetService("RunService").Heartbeat:wait()
-                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-                                        HealthMin = v.Humanoid.MaxHealth * HealthPersen/100
-                                        if v.Humanoid.Health <= HealthMin then
-                                            EquipWeapon(SelectToolWeaponGun)
-                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
-                                            local args = {
-                                                [1] = v.HumanoidRootPart.Position,
-                                                [2] = v.HumanoidRootPart
-                                            }
-                                            game:GetService("Players").LocalPlayer.Character[SelectToolWeaponGun].RemoteFunctionShoot:InvokeServer(unpack(args))
-                                        else
-                                            EquipWeapon(WeaponMastery)
-                                            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework).activeController.hitboxMagnitude = 1000
-                                            TP(v.HumanoidRootPart.CFrame * Farm_Mode)
-                                            game:GetService'VirtualUser':CaptureController()
-                                            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                                        end
-                                        MasteryGunMagnetActive = true 
-                                        PosMonMasteryGun = v.HumanoidRootPart.CFrame
-                                    else
-                                        MasteryGunMagnetActive = false
-                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                                    end
-                                until v.Humanoid.Health <= 0 or FarmMasteryGun == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                MasteryGunMagnetActive = false
-                            end
-                        end
-                    end)
-                else
-                    TP(CFrameMon)
-                end 
-            end
-        end
-    end
-end)
-
 function CheckLevel()
     local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
     if OldWorld then
@@ -2685,6 +2145,546 @@ spawn(function()
                 end
             end
         end)
+    end
+end)
+
+if ThreeWorld then
+	page:Button("Auto Holy Torch", function()
+		if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("Holy Torch") and not game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Holy Torch") then
+			DiscordLib:Notification("Auto Holy Torch", "You not Have Holy Torch", "Okay")
+		else
+			HolyTorch = true
+			EquipWeapon("Holy Torch")
+			TP2(CFrame.new(-10753.7842, 412.229553, -9364.7959, 0.999571264, 1.15988023e-07, 0.0292795487, -1.15145767e-07, 1, -3.0452199e-08, -0.0292795487, 2.70677276e-08, 0.999571264))
+			wait(1)
+			TP2(CFrame.new(-11673.8115, 331.748993, -9473.27246, 0.82297951, -1.03370638e-07, -0.568071067, 7.03514687e-08, 1, -8.00477693e-08, 0.568071067, 2.59130388e-08, 0.82297951))
+			wait(1)
+			TP2(CFrame.new(-12134.1895, 519.47522, -10653.8457, 0.828167021, 4.15180885e-08, -0.560481429, -3.68933151e-08, 1, 1.95622238e-08, 0.560481429, 4.47723014e-09, 0.828167021))
+			wait(1)
+			TP2(CFrame.new(-13336.9902, 485.547852, -6983.84131, 0.834512472, 8.29770741e-08, -0.550989032, -5.3400484e-08, 1, 6.97177356e-08, 0.550989032, -2.87572384e-08, 0.834512472))
+			wait(1)
+			TP2(CFrame.new(-13486.5088, 332.403931, -7925.40527, -0.974250019, 5.647113e-08, 0.225470319, 3.76493894e-08, 1, -8.7777444e-08, -0.225470319, -7.70283606e-08, -0.974250019))
+			HolyTorch = false
+		end
+	end)
+end
+
+Wapon = {}
+   for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+       if v:IsA("Tool") then
+           table.insert(Wapon ,v.Name)
+       end
+   end
+   for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+       if v:IsA("Tool") then
+           table.insert(Wapon, v.Name)
+       end
+   end
+
+local SelectToolWeapon = page:Dropdown("Select Weapon",Wapon,function(Value)
+    SelectToolWeapon = Value
+       SelectToolWeaponNW = Value
+       AutoTool = Value
+end)
+   
+page:Button("Refresh Weapon",function()
+	SelectToolWeapon:Clear()
+	for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+		if v:IsA("Tool") then
+			SelectToolWeapon:Add(v.Name)
+		end
+	end
+	for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+		if v:IsA("Tool") then
+			SelectToolWeapon:Add(v.Name)
+		end
+	end
+end)
+
+page:Button("Redeem All Code", function()
+	function UseCode(Text)
+	 game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Text)
+ end
+ UseCode("UPD16")
+ UseCode("2BILLION")
+ UseCode("UPD15")
+ UseCode("FUDD10")
+ UseCode("BIGNEWS")
+ UseCode("THEGREATACE")
+ UseCode("SUB2GAMERROBOT_EXP1")
+ UseCode("StrawHatMaine")
+ UseCode("Sub2OfficialNoobie")
+ UseCode("SUB2NOOBMASTER123")
+ UseCode("Sub2Daigrock")
+ UseCode("Axiore")
+ UseCode("TantaiGaming")
+ UseCode("STRAWHATMAINE") 
+ UseCode("3BVISITS") 
+ UseCode("Fudd10 ") 
+ UseCode("Fudd10_v2 ") 
+ UseCode("Bignews ") 
+ UseCode("TantaiGaming") 
+end)
+
+spawn(function()
+	while wait() do
+		 Method = CFrame.new(0,FMode1,FMode3)
+	 end
+ end)
+ 
+ function TP55(P1,P2)
+	 local Distance = (P1 - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+	 if Distance < 1000 then
+		 Speed = 350
+	 elseif Distance >= 1000 then
+		 Speed = 350
+	 end
+	 game:GetService("TweenService"):Create(
+		 game.Players.LocalPlayer.Character.HumanoidRootPart,
+		 TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+		 {CFrame = P2}
+	 ):Play()
+	 wait(Distance/Speed)
+ end
+
+ page:Button("Bypass", function(t)
+		local p=game.Players.LocalPlayer;
+		local oldcframe;
+		local holdingfoil=false;
+		p.Character.Humanoid:SetStateEnabled(15,false);
+		p.Character.Humanoid:SetStateEnabled(16,false);
+		p.CharacterRemoving:Connect(function()
+			if (p.Character) then
+				local t=p.Character:FindFirstChild("Torso")
+				if (t ~= nil) then oldcframe=t.CFrame end
+				if (p.Character:findFirstChild("Foil")) then holdingfoil=true end
+			end
+	end)
+		p.CharacterAdded:Connect(function()
+			while p.Character==nil do wait() end
+			while p.Character.Parent==nil do wait() end
+			local h=p.Character:WaitForChild("Humanoid")
+			local rp=p.Character:WaitForChild("HumanoidRootPart")
+			if (h ~= nil and rp ~= nil) then
+				h:SetStateEnabled(15,false);
+				h:SetStateEnabled(16,false);
+				for i=1,10 do
+					rp.CFrame=oldcframe;
+				end
+				if (holdingfoil) then
+					holdingfoil=false
+					local foil=p.Backpack:FindFirstChild("Foil")
+					if (foil ~= nil) then
+						foil.Parent=p.Character
+					end
+				end
+			end
+	end)
+	wait(0.8)
+		game.Players.LocalPlayer.Character.Humanoid.Health = math.huge
+	if game.Players.LocalPlayer.Character.Humanoid.MaxHealth == 100 then
+	if OldWorld then
+		TP55(Vector3.new(5355.2133789062, 38.501129150391, 3979.4418945312),CFrame.new(5355.2133789062, 38.501129150391, 3979.4418945312))
+	for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,0,-4)
+	end
+	wait(1)
+		game.Players.LocalPlayer.Character.Humanoid.Health = game.Players.LocalPlayer.Character.Humanoid.MaxHealth
+	end
+	end
+	if NewWorld or ThreeWorld then
+		for i, v in pairs(game.Workspace.Enemies:GetChildren()) do
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame*CFrame.new(0,0,-4)
+		end
+		wait(1)
+		game.Players.LocalPlayer.Character.Humanoid.Health = game.Players.LocalPlayer.Character.Humanoid.MaxHealth
+		end
+	end)
+
+    page:Label("Auto Fighting Style")
+
+    page:Toggle("Auto Superhuman",false,function(vu)
+        _G.Superhuman = vu
+    end)
+    -- Auto Death Step
+    page:Toggle("Auto Death Step",false,function(vu)
+        _G.DeathStep = vu
+        if vu then
+            local args = {
+                [1] = "BuyBlackLeg"
+            }
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+        end
+    end)
+    -- Auto Dargon Talon
+    page:Toggle("Auto Dragon Talon",false,function(vu)
+        _G.DargonTalon = vu
+        if vu then
+            local args = {
+                [1] = "BlackbeardReward",
+                [2] = "DragonClaw",
+                [3] = "2"
+            }
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+        end
+    end)
+    -- Auto Electric clow
+    page:Toggle("Auto Electric Claw",false,function(vu)
+        _G.Electricclow = vu
+        if vu then
+            local args = {
+                [1] = "BuyElectro"
+            }
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+        end
+    end)
+    spawn(function()
+        while wait(.5) do
+            if _G.Superhuman and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Combat") or game.Players.LocalPlayer.Character:FindFirstChild("Combat") then
+                    local args = {
+                        [1] = "BuyBlackLeg"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end   
+                if game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Backpack:FindFirstChild("Superhuman") and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    _G.SelectToolWeapon = "Superhuman"
+                end  
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    _G.SelectToolWeapon = "Black Leg"
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    _G.SelectToolWeapon = "Electro"
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    _G.SelectToolWeapon = "Fishman Karate"
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value <= 299 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    _G.SelectToolWeapon = "Dragon Claw"
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuyElectro"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuyElectro"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuyFishmanKarate"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuyFishmanKarate"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Backpack:FindFirstChild("Fishman Karate").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BlackbeardReward",
+                        [2] = "DragonClaw",
+                        [3] = "2"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") and game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BlackbeardReward",
+                        [2] = "DragonClaw",
+                        [3] = "2"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuySuperhuman"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 300 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    local args = {
+                        [1] = "BuySuperhuman"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                end 
+            end
+            if _G.DeathStep and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value >= 400 then
+                    local args = {
+                        [1] = "BuyDeathStep"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                    _G.SelectToolWeapon = "Death Step"
+                end  
+                if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 400 then
+                    local args = {
+                        [1] = "BuyDeathStep"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                    
+                    _G.SelectToolWeapon = "Death Step"
+                end  
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Backpack:FindFirstChild("Black Leg").Level.Value < 400 then
+                    _G.SelectToolWeapon = "Black Leg"
+                end 
+            end
+            if _G.DargonTalon and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Backpack:FindFirstChild("Dragon Claw").Level.Value <= 399 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    _G.SelectToolWeapon = "Dragon Claw"
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value <= 399 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    _G.SelectToolWeapon = "Dragon Claw"
+                end
+    
+                if game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") and game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw").Level.Value >= 400 and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+                    _G.SelectToolWeapon = "Dragon Claw"
+                    if game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyDragonTalon", true) == 3 then
+                        local string_1 = "Bones";
+                        local string_2 = "Buy";
+                        local number_1 = 1;
+                        local number_2 = 1;
+                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+                        Target:InvokeServer(string_1, string_2, number_1, number_2);
+    
+                        local string_1 = "BuyDragonTalon";
+                        local bool_1 = true;
+                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+                        Target:InvokeServer(string_1, bool_1);
+                    elseif game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyDragonTalon", true) == 1 then
+                        game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyDragonTalon")
+                    else
+                        local string_1 = "BuyDragonTalon";
+                        local bool_1 = true;
+                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+                        Target:InvokeServer(string_1, bool_1);
+                        local string_1 = "BuyDragonTalon";
+                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+                        Target:InvokeServer(string_1);
+                    end 
+                end
+            end
+            if _G.Electricclow and game.Players.LocalPlayer:FindFirstChild("WeaponAssetCache") then
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value < 400 then
+                    _G.SelectToolWeapon = "Electro"
+                end  
+                if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value < 400 then
+                    _G.SelectToolWeapon = "Electro"
+                end  
+                if game.Players.LocalPlayer.Backpack:FindFirstChild("Electro") and game.Players.LocalPlayer.Backpack:FindFirstChild("Electro").Level.Value >= 400 then
+                    local v175 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyElectricClaw", true);
+                    if v175 == 4 then
+                        local v176 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyElectricClaw", "Start");
+                        if v176 == nil then
+                            game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12548, 337, -7481)
+                        end
+                    else
+                        local string_1 = "BuyElectricClaw";
+                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+                        Target:InvokeServer(string_1);
+                    end
+                end
+                if game.Players.LocalPlayer.Character:FindFirstChild("Electro") and game.Players.LocalPlayer.Character:FindFirstChild("Electro").Level.Value >= 400 then
+                    local v175 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyElectricClaw", true);
+                    if v175 == 4 then
+                        local v176 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("BuyElectricClaw", "Start");
+                        if v176 == nil then
+                            game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-12548, 337, -7481)
+                        end
+                    else
+                        local string_1 = "BuyElectricClaw";
+                        local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+                        Target:InvokeServer(string_1);
+                    end
+                end
+            end
+        end
+    end)    
+
+local Farm = serv:Channel("Auto Farm Mastery")
+
+Farm:Label("Auto Farm Matery")
+
+Farm:Toggle("Auto Farm Mas. Fruit", false, function(vu)
+    AutoFarmMasteryFruit = vu
+    if AutoFarmMasteryFruit and WeaponMastery == "" then
+        DiscordLib:Notification("Auto Farm Mastery","SelectWeapon First","Okay")
+    else
+        FarmMasteryFruit = vu
+        if vu == false then
+            wait(1)
+            TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+        end
+    end
+end)
+
+Farm:Toggle("Auto Farm Mas. Gun", false, function(vu)
+    AutoarmMasteryGun = vu
+    if AutoarmMasteryGun and WeaponMastery == "" then
+        DiscordLib:Notification("Auto Farm Mastery","SelectWeapon First","Okay")
+    else
+        FarmMasteryGun = vu
+        if vu == false then
+            wait(1)
+            TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+        end
+    end
+end)
+
+HealthPersen = 25
+Farm:Slider("Health %", 1,100,HealthPersen, function(Value)
+    HealthPersen = Value
+end)
+
+local SelectToolWeapon = Farm:Dropdown("Select Weapon",Wapon,function(Value)
+    WeaponMastery = Value
+    SelectToolWeaponGun = Value
+end)
+
+Farm:Button("Refresh Weapon",function()
+    SelectToolWeapon:Clear()
+    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v:IsA("Tool") then
+            SelectToolWeapon:Add(v.Name)
+        end
+    end
+    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Tool") then
+            SelectToolWeapon:Add(v.Name)
+        end
+    end
+end)
+
+Farm:Label("Auto Skill")
+
+Farm:Toggle("Skill Z",true,function(a)
+        SkillZ = a
+    end)
+    Farm:Toggle("Skill X",true,function(a)
+        SkillX = a
+    end)
+    Farm:Toggle("Skill C",true,function(a)
+        SkillC = a
+    end)
+    Farm:Toggle("Skill V",true,function(a)
+        SkillV = a
+    end)
+
+    spawn(function()
+        while wait(.1) do
+            if FarmMasteryFruit then
+                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                    MasteryBFMagnetActive = false
+                    CheckLevel()
+                    TP(CFrameQ)
+                    if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
+                        wait(1.1)
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+                    end
+                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                    CheckLevel()
+                    if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+                        pcall(function()
+                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                if v.Name == Ms then
+                                    repeat game:GetService("RunService").Heartbeat:wait()
+                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+                                            HealthMin = v.Humanoid.MaxHealth * HealthPersen/100
+                                            if v.Humanoid.Health <= HealthMin then
+                                                EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
+                                                v.Head.CanCollide = false
+                                                v.HumanoidRootPart.CanCollide = false
+                                                v.HumanoidRootPart.Size = Vector3.new(2,2,1)
+                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                                USEBF = true
+                                            else
+                                                USEBF = false
+                                                EquipWeapon(WeaponMastery)
+                                                TP(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                                game:GetService("VirtualUser"):CaptureController()
+                                                game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
+                                                v.Head.CanCollide = false
+                                                v.HumanoidRootPart.CanCollide = false
+                                                v.HumanoidRootPart.Size = Vector3.new(40,40,40)
+                                            end
+                                            MasteryBFMagnetActive = true
+                                            PosMonMasteryFruit = v.HumanoidRootPart.CFrame
+                                        else
+                                            MasteryBFMagnetActive = false
+                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                        end
+                                    until v.Humanoid.Health <= 0 or FarmMasteryFruit == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                    USEBF = false
+                                end
+                            end
+                        end)
+                    else
+                        MasteryBFMagnetActive = false
+                        TP(CFrameMon)
+                    end 
+                end
+            end
+        end
+    end)
+
+spawn(function()
+    while wait(.1) do
+        if FarmMasteryGun then
+            if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                MasteryGunMagnetActive = false
+                CheckLevel()
+                TP(CFrameQ)
+                if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 30 then
+                    wait(1.1)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+                end
+            elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                CheckLevel()
+                if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+                    pcall(function()
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == Ms then
+                                repeat game:GetService("RunService").Heartbeat:wait()
+                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+                                        HealthMin = v.Humanoid.MaxHealth * HealthPersen/100
+                                        if v.Humanoid.Health <= HealthMin then
+                                            EquipWeapon(SelectToolWeaponGun)
+                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
+                                            local args = {
+                                                [1] = v.HumanoidRootPart.Position,
+                                                [2] = v.HumanoidRootPart
+                                            }
+                                            game:GetService("Players").LocalPlayer.Character[SelectToolWeaponGun].RemoteFunctionShoot:InvokeServer(unpack(args))
+                                        else
+                                            EquipWeapon(WeaponMastery)
+                                            require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework).activeController.hitboxMagnitude = 1000
+                                            TP(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                            game:GetService'VirtualUser':CaptureController()
+                                            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                        end
+                                        MasteryGunMagnetActive = true 
+                                        PosMonMasteryGun = v.HumanoidRootPart.CFrame
+                                    else
+                                        MasteryGunMagnetActive = false
+                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                    end
+                                until v.Humanoid.Health <= 0 or FarmMasteryGun == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                MasteryGunMagnetActive = false
+                            end
+                        end
+                    end)
+                else
+                    TP(CFrameMon)
+                end 
+            end
+        end
     end
 end)
 
